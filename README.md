@@ -17,12 +17,12 @@ The source code for the  [quarkuscoffeeshop](https://github.com/quarkuscoffeesho
 Requirements
 ------------
 
-* OpenShift 4.12 an up Cluster installed
+* OpenShift 4.14 an up Cluster installed
 * Docker or podman
 
 Currently tested on 
 -------------------
-* OpenShift 4.12.2
+* OpenShift 4.14.0
 * OpenShift Pipelines: 1.9.0
 * AMQ Streams: 2.3.0-0odm
 * Postgres Operator: v5.3.0
