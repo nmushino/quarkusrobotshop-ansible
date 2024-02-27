@@ -51,7 +51,6 @@ postgres_password: postgres
 postgres_hostname: "coffeeshopdb-primary.{{ project_namespace }}.svc"
 pgsql_url: 'jdbc:postgresql://coffeeshopdb-primary.quarkuscoffeeshop-demo.svc.cluster.local:5432/coffeeshopdb?currentSchema=coffeeshop'
 
-
 # pgAdmin Database values 
 pgadmin_setup_email: nmushino@redhat.com
 pgadmin_default_password: postgres
