@@ -60,19 +60,18 @@ function configure-ansible-and-playbooks(){
   else 
     ROLE_LOC=$(find  ~/.ansible/roles -name quarkuscoffeeshop-ansible)
   fi 
-  
 
   if [[ $DEVELOPMENT == "false" ]] || [[ -z $DEVELOPMENT ]];
   then
     ${USE_SUDO} rm -rf ${ROLE_LOC}
-    ${USE_SUDO} ansible-galaxy install https://github.com/nmushino/quarkuscoffeeshop-ansible.git
+    ${USE_SUDO} ansible-galaxy install git+https://github.com/nmushino/quarkuscoffeeshop-ansible.git
     echo "****************"
     echo "Start Deployment"
     echo "****************"
   elif  [ $DEVELOPMENT == "true" ];
   then 
     ${USE_SUDO} rm -rf ${ROLE_LOC}
-    ${USE_SUDO} ansible-galaxy install https://github.com/nmushino/quarkuscoffeeshop-ansible.git,dev
+    ${USE_SUDO} ansible-galaxy install git+https://github.com/nmushino/quarkuscoffeeshop-ansible.git,dev
     echo "****************"
     echo " Start Deployment "
     echo " DEVELOPMENT MODE "
