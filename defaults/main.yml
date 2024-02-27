@@ -49,7 +49,8 @@ postgres_version: postgresql:10-el8
 pgsql_username: coffeeshopadmin
 postgres_password: postgres
 postgres_hostname: "coffeeshopdb-primary.{{ project_namespace }}.svc"
-pgsql_url: 'jdbc:postgresql://coffeeshopdb:5432/coffeeshopdb?currentSchema=coffeeshop'
+pgsql_url: 'jdbc:postgresql://coffeeshopdb-primary.quarkuscoffeeshop-demo.svc.cluster.local:5432/coffeeshopdb?currentSchema=coffeeshop'
+
 
 # pgAdmin Database values 
 pgadmin_setup_email: nmushino@redhat.com
