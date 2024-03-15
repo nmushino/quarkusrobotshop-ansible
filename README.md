@@ -128,21 +128,21 @@ curl  --request POST http://${ENDPOINT}/order \
 -d '{
     "beverages": [
         {
-            "item": "COFFEE_WITH_ROOM",
+            "item": "CP1FC3_WITH_ROOM",
             "name": "Mickey"
         },
         {
-            "item": "CAPPUCCINO",
+            "item": "CH99A9",
             "name": "Minnie"
         }
     ],
     "kitchenOrders": [
         {
-            "item": "CAKEPOP",
+            "item": "FAMKD8D8",
             "name": "Mickey"
         },
         {
-            "item": "CROISSANT",
+            "item": "FAC94S3",
             "name": "Minnie"
         }
     ]
