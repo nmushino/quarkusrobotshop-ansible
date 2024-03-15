@@ -1,21 +1,21 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: coffeeshopdb
+  name: robotshopdb
   namespace: {{ homeoffice_project }}
   labels:
     template: postgresql-ephemeral-template
     template.openshift.io/template-instance-owner: e55136ad-fd22-4604-9573-24480d1e8fcd
   annotations:
-    template.openshift.io/expose-uri: 'postgres://{.spec.clusterIP}:{.spec.ports[?(.name=="coffeeshopdb")].port}'
+    template.openshift.io/expose-uri: 'postgres://{.spec.clusterIP}:{.spec.ports[?(.name=="robotshopdb")].port}'
 spec:
   ports:
-    - name: coffeeshopdb
+    - name: robotshopdb
       protocol: TCP
       port: 5432
       targetPort: 5432
   selector:
-    name: coffeeshopdb
+    name: robotshopdb
   type: ClusterIP
   sessionAffinity: None
   ipFamilies:
@@ -27,7 +27,7 @@ apiVersion: apps.openshift.io/v1
 metadata:
   annotations:
     template.alpha.openshift.io/wait-for-ready: 'true'
-  name: coffeeshopdb
+  name: robotshopdb
   namespace: {{ homeoffice_project }}
   labels:
     template: postgresql-ephemeral-template
@@ -44,7 +44,7 @@ spec:
       imageChangeParams:
         automatic: true
         containerNames:
-          - coffeeshopdb
+          - robotshopdb
         from:
           kind: ImageStreamTag
           namespace: openshift
@@ -56,12 +56,12 @@ spec:
   revisionHistoryLimit: 10
   test: false
   selector:
-    name: coffeeshopdb
+    name: robotshopdb
   template:
     metadata:
       creationTimestamp: null
       labels:
-        name: coffeeshopdb
+        name: robotshopdb
     spec:
       volumes:
         - name: postgresql-data
@@ -80,7 +80,7 @@ spec:
             successThreshold: 1
             failureThreshold: 3
           terminationMessagePath: /dev/termination-log
-          name: coffeeshopdb
+          name: robotshopdb
           livenessProbe:
             exec:
               command:

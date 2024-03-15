@@ -6,7 +6,7 @@
     postgres_password: 'changeme'
     storeid: TOKYO
     openshift_url: "https://api.{{ domain }}:6443"
-    project_namespace: quarkuscoffeeshop-demo
+    project_namespace: quarkusrobotshop-demo
     delete_deployment: false
     insecure_skip_tls_verify: true
     default_owner: root
@@ -15,6 +15,6 @@
     skip_configure_postgres: false
     skip_mongodb_operator_install: true
     single_mongodb_install: false 
-    skip_quarkuscoffeeshop_helm_install: true
+    skip_quarkusrobotshop_helm_install: true
   roles:
-  - quarkuscoffeeshop-ansible
+  - quarkusrobotshop-ansible

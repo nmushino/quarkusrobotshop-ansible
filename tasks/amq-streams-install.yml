@@ -78,12 +78,12 @@
     - amq
     - acm-workload
 
-- name: Search for all Pods labeled  cafe-cluster-zookeeper
+- name: Search for all Pods labeled  robot-cluster-zookeeper
   kubernetes.core.k8s_info:
     kind: Pod
     namespace:  "{{ project_namespace }}"
     label_selectors:
-      - "strimzi.io/name=cafe-cluster-zookeeper"
+      - "strimzi.io/name=robot-cluster-zookeeper"
     field_selectors:
       - status.phase=Running
   register: r_zookeeper_status
@@ -95,12 +95,12 @@
     - amq
     - acm-workload
 
-- name: Search for all Pods labeled  cafe-cluster-kafka
+- name: Search for all Pods labeled  robot-cluster-kafka
   kubernetes.core.k8s_info:
     kind: Pod
     namespace:  "{{ project_namespace }}"
     label_selectors:
-      - "strimzi.io/name=cafe-cluster-kafka"
+      - "strimzi.io/name=robot-cluster-kafka"
     field_selectors:
       - status.phase=Running
   register: r_kafka_status

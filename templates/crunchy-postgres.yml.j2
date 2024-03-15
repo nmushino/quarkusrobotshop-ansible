@@ -1,7 +1,7 @@
 apiVersion: postgres-operator.crunchydata.com/v1beta1
 kind: PostgresCluster
 metadata:
-  name: coffeeshopdb
+  name: robotshopdb
   namespace: {{ project_namespace }}
 spec:
   backups:
@@ -31,6 +31,6 @@ spec:
   postgresVersion: 14
   users:
     - databases:
-        - coffeeshopdb
+        - robotshopdb
       name: coffeshopadmin
 

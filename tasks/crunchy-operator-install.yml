@@ -62,7 +62,7 @@
     - helm
 
 # wait for Postgres to be ready
-- name: Wait for coffeeshopdb to be ready
+- name: Wait for robotshopdb to be ready
   kubernetes.core.k8s_info:
     api_version: postgres-operator.crunchydata.com/v1beta1
     kind: PostgresCluster
@@ -83,7 +83,7 @@
   kubernetes.core.k8s_info:
     api: v1
     kind: Secret
-    name: coffeeshopdb-pguser-coffeshopadmin
+    name: robotshopdb-pguser-coffeshopadmin
     namespace: "{{ project_namespace }}"
   register: databasepassword
   when: not delete_deployment|bool
@@ -124,13 +124,13 @@
     - acm-workload
     - helm
 
-- name: Remove an coffeeshopdb-repo-host
+- name: Remove an robotshopdb-repo-host
   kubernetes.core.k8s:
     state: absent
     api_version: apps/v1
     kind: StatefulSet
     namespace: "{{ project_namespace }}"
-    name: coffeeshopdb-repo-host
+    name: robotshopdb-repo-host
   ignore_errors: true
   when:  delete_deployment|bool
   tags: 

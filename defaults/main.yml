@@ -1,17 +1,17 @@
 ---
-# defaults file for quarkuscoffeeshop-demo-role
+# defaults file for quarkusrobotshop-demo-role
 openshift_token: 1234567890
 openshift_url: https://api.ocp4.example.com:6443
 default_owner: root
 default_group: root
 insecure_skip_tls_verify: true
-project_namespace: quarkuscoffeeshop-demo
+project_namespace: quarkusrobotshop-demo
 delete_deployment: false
 amqstartingCSV: amqstreams.v2.6.0-1
 mongodbstartingCSV: mongodb-enterprise.v1.8.1
 crunchystartingCSV: postgresoperator.v5.5.0
 config_location: "/tmp/"
-kafka_cluster_name: cafe-cluster
+kafka_cluster_name: robot-cluster
 domain: ocp4.example.com
 branch: master
 
@@ -19,20 +19,20 @@ branch: master
 helm_chart_version: 3.5.0
 
 # Application Versions 
-#version_barista: 5.0.0-SNAPSHOT
+#version_package: 5.0.0-SNAPSHOT
 #version_counter: 5.0.3-SNAPSHOT
 #version_customermocker: 5.0.1-SNAPSHOT
 #version_inventory: 5.0.0-SNAPSHOT
-#version_kitchen: 5.0.0-SNAPSHOT
+#version_customize: 5.0.0-SNAPSHOT
 #version_web: 5.0.3-SNAPSHOT
 #version_customerloyalty: 5.0.1-SNAPSHOT
 
 # replica count 
-replica_barista: 1
+replica_package: 1
 replica_counter: 1
 replica_customermocker: 1
 replica_inventory: 1
-replica_kitchen: 1
+replica_customize: 1
 replica_web: 1
 replica_customerloyalty: 1
 
@@ -46,10 +46,10 @@ skip_mongodb_operator_install: true
 
 # Postgres database information
 postgres_version: postgresql:10-el8
-pgsql_username: coffeeshopadmin
+pgsql_username: robotshopadmin
 postgres_password: postgres
-postgres_hostname: "coffeeshopdb-primary.{{ project_namespace }}.svc"
-pgsql_url: 'jdbc:postgresql://coffeeshopdb-primary.quarkuscoffeeshop-demo.svc.cluster.local:5432/coffeeshopdb?currentSchema=coffeeshop'
+postgres_hostname: "robotshopdb-primary.{{ project_namespace }}.svc"
+pgsql_url: 'jdbc:postgresql://robotshopdb-primary.quarkusrobotshop-demo.svc.cluster.local:5432/robotshopdb?currentSchema=robotshop'
 
 # pgAdmin Database values 
 pgadmin_setup_email: nmushino@redhat.com
@@ -61,11 +61,11 @@ storeid: TOKYO
 
 #Quarkus counter logging level
 quarkus_log_level: INFO
-quarkuscoffeeshop_log_level: DEBUG
+quarkusrobotshop_log_level: DEBUG
 
 # Settings for ACM Deployment
-development_project: quarkuscoffeeshop-cicd
-homeoffice_project: quarkuscoffeeshop-homeoffice
+development_project: quarkusrobotshop-cicd
+homeoffice_project: quarkusrobotshop-homeoffice
 
 # gogs configureation settings 
 gogs_image_version:  0.12.10
@@ -86,13 +86,13 @@ user_format: user%d
 my_user: user1
 # Name of repository on checkout from workshop repo
 reponame_local: tekton-pipelines
-acm_reponame_local: quarkuscoffeeshop-gitops
+acm_reponame_local: quarkusrobotshop-gitops
 # Name of repository on checkout from workshop repo
 reponame: tekton-pipelines
-acm_reponame: quarkuscoffeeshop-gitops
+acm_reponame: quarkusrobotshop-gitops
 # tekton pipelines repo for applications
-repo_url: https://github.com/quarkuscoffeeshop/tekton-pipelines.git
-acm_repo_url: https://github.com/quarkuscoffeeshop/quarkuscoffeeshop-gitops.git
+repo_url: https://github.com/quarkusrobotshop/tekton-pipelines.git
+acm_repo_url: https://github.com/quarkusrobotshop/quarkusrobotshop-gitops.git
 
 # OpenShift Storage
 odf_version: "stable-4.14" 

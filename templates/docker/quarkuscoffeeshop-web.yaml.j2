@@ -4,22 +4,22 @@ metadata:
   annotations:
     openshift.io/host.generated: "true"
   labels:
-    app: quarkuscoffeeshop-web
-    app.kubernetes.io/component: quarkuscoffeeshop-web
-    app.kubernetes.io/instance: quarkuscoffeeshop-web
+    app: quarkusrobotshop-web
+    app.kubernetes.io/component: quarkusrobotshop-web
+    app.kubernetes.io/instance: quarkusrobotshop-web
     app.kubernetes.io/name: ""
-    app.kubernetes.io/part-of: quarkus-cafe
+    app.kubernetes.io/part-of: quarkus-robot
     app.openshift.io/runtime: ""
     app.openshift.io/runtime-version: latest
-    jeremydavis/quarkuscoffeeshop-web: ""
-  name: quarkuscoffeeshop-web
+    jeremydavis/quarkusrobotshop-web: ""
+  name: quarkusrobotshop-web
   namespace: {{ project_namespace }}
 spec:
-  host: quarkuscoffeeshop-web-{{ project_namespace }}.apps.{{ domain }}
+  host: quarkusrobotshop-web-{{ project_namespace }}.apps.{{ domain }}
   port:
     targetPort: 8080-tcp
   to:
     kind: Service
-    name: quarkuscoffeeshop-web
+    name: quarkusrobotshop-web
     weight: 100
   wildcardPolicy: None

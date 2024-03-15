@@ -1,16 +1,16 @@
 # Docs
-Please see the Github Pages Site for complete documentation: [quarkuscoffeeshop.github.io](https://quarkuscoffeeshop.github.io)
+Please see the Github Pages Site for complete documentation: [quarkusrobotshop.github.io](https://quarkusrobotshop.github.io)
 
 QuarkusCoffeeshop Install
 =========
 
 _NOTE:_ Ansible must be installed https://docs.ansible.com/ansible/latest/installation_guide/index.html
 
-The QuarkusCoffeeshop Ansbile Role performs a basic installation that includes the microservices for a coffeeshop, installation of the Crunchy PostgreSQL DB, AMQ Streams (Kafka.)
+The QuarkusCoffeeshop Ansbile Role performs a basic installation that includes the microservices for a robotshop, installation of the Crunchy PostgreSQL DB, AMQ Streams (Kafka.)
 
 
 The QuarkusCoffeeshop Role will deploy an event-driven demo application built with Quarkus, AMQ Streams (Kafka), and MongoDB. The application deploys to OpenShift (Kubernetes.)
-The source code for the  [quarkuscoffeeshop](https://github.com/quarkuscoffeeshop) application support doc can be found  [here](https://github.com/quarkuscoffeeshop/quarkuscoffeeshop-support).
+The source code for the  [quarkusrobotshop](https://github.com/quarkusrobotshop) application support doc can be found  [here](https://github.com/quarkusrobotshop/quarkusrobotshop-support).
 
 
 
@@ -36,7 +36,7 @@ Quick Start
 > This command will deploy the application on a Single cluster with the following services below. 
 * AMQ Streams
 * Postgres Operator configuration 
-* quarkus coffeeshop helm deployment
+* quarkus robotshop helm deployment
 ```
 $ cat >source.env<<EOF
 CLUSTER_DOMAIN_NAME=clustername.example.com
@@ -50,7 +50,7 @@ HELM_DEPLOYMENT=y
 DELETE_DEPLOYMENT=false
 DEBUG=-v
 EOF
-$ podman run  -it --env-file=./source.env  quay.io/quarkuscoffeeshop/quarkuscoffeeshop-ansible:v4.12.1
+$ podman run  -it --env-file=./source.env  quay.io/quarkusrobotshop/quarkusrobotshop-ansible:v4.12.1
 
 ```
 
@@ -64,7 +64,7 @@ $ podman run  -it --env-file=./source.env  quay.io/quarkuscoffeeshop/quarkuscoff
 * AMQ Streams
 * Postgres Template deployment
 * homeoffice Tekton pipelines
-* quarkus-coffeeshop Tekton pipelines
+* quarkus-robotshop Tekton pipelines
 ```
 $ cat >source.env<<EOF
 CLUSTER_DOMAIN_NAME=clustername.example.com
@@ -76,11 +76,11 @@ HELM_DEPLOYMENT=n
 DELETE_DEPLOYMENT=false
 DEBUG=-v
 EOF
-$ podman run  -it --env-file=./source.env  quay.io/quarkuscoffeeshop/quarkuscoffeeshop-ansible:v4.12.1
+$ podman run  -it --env-file=./source.env  quay.io/quarkusrobotshop/quarkusrobotshop-ansible:v4.12.1
 ```
 
 **Optional: Change namespace for helm deployments**  
-`default is quarkuscoffeeshop-demo`
+`default is quarkusrobotshop-demo`
 ```
 $ cat >source.env<<EOF
 CLUSTER_DOMAIN_NAME=clustername.example.com
@@ -95,38 +95,38 @@ NAMESPACE=changeme
 DELETE_DEPLOYMENT=false
 DEBUG=-v
 EOF
-$ podman run  -it --env-file=./source.env  quay.io/quarkuscoffeeshop/quarkuscoffeeshop-ansible:v4.12.1
+$ podman run  -it --env-file=./source.env  quay.io/quarkusrobotshop/quarkusrobotshop-ansible:v4.12.1
 ```
 
 
 
 ScreenShots
 ------------------------------------------------
-![quarkuscoffeeshop topology](images/quarkus-cafe-applications.png "quarkuscoffeeshop topology")
+![quarkusrobotshop topology](images/quarkus-robot-applications.png "quarkusrobotshop topology")
 
-![quarkuscoffeeshop AMQ kafka topics](images/amq-topics.png "quarkuscoffeeshop  kafka topics")
+![quarkusrobotshop AMQ kafka topics](images/amq-topics.png "quarkusrobotshop  kafka topics")
 
-http://quarkuscoffeeshop-web-quarkus-cafe-demo.apps.example.com example
-![qquarkuscoffeeshop application](images/webpage-example.png "quarkuscoffeeshop application")
+http://quarkusrobotshop-web-quarkus-robot-demo.apps.example.com example
+![qquarkusrobotshop application](images/webpage-example.png "quarkusrobotshop application")
 
 
 Usage
 ----------------
 * Default web page 5.0.1-SNAPSHOT  
-  * http://quarkuscoffeeshop-web-quarkus-cafe-demo.apps.example.com/
+  * http://quarkusrobotshop-web-quarkus-robot-demo.apps.example.com/
 this endpoint is used to view the events coming into the cluster
 * Default web page v3.3.1  
-  * http://quarkuscoffeeshop-web-quarkus-cafe-demo.apps.example.com/cafe
+  * http://quarkusrobotshop-web-quarkus-robot-demo.apps.example.com/robot
 this endpoint is used to view the events coming into the cluster
-* If you deploy skip_quarkus_cafe_customermock this will automatically push events to the quarkus cafe dashboard.
+* If you deploy skip_quarkus_robot_customermock this will automatically push events to the quarkus robot dashboard.
 * If you would like to manally push events to AMQ use the command below.
 ```shell
-export ENDPOINT="quarkuscoffeeshop-web-quarkus-cafe-demo.apps.ocp4.example.com"
+export ENDPOINT="quarkusrobotshop-web-quarkus-robot-demo.apps.ocp4.example.com"
 curl  --request POST http://${ENDPOINT}/order \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 -d '{
-    "beverages": [
+    "packages": [
         {
             "item": "CP1FC3_WITH_ROOM",
             "name": "Mickey"
@@ -136,7 +136,7 @@ curl  --request POST http://${ENDPOINT}/order \
             "name": "Minnie"
         }
     ],
-    "kitchenOrders": [
+    "customizeOrders": [
         {
             "item": "FAMKD8D8",
             "name": "Mickey"
@@ -168,52 +168,52 @@ deployment_method | docker or s2i build | docker
 skip_amq_install |  Skip Red Hat AMQ Install  |  false
 skip_mongodb_operator_install |  Skip MongoDB Operator Install  |  false
 single_mongodb_install | Skip single instance mongodb | false
-skip_quarkuscoffeeshop_helm_install |  Skip quarkuscoffeeshop helm chart install  |  false
+skip_quarkusrobotshop_helm_install |  Skip quarkusrobotshop helm chart install  |  false
 openshift_token | OpenShift login token  | 123456789
 openshift_url | OpenShift target url  | https://master.example.com
-project_namespace | OpenShift Project name for the quarkus-cafe | quarkus-cafe-demo
+project_namespace | OpenShift Project name for the quarkus-robot | quarkus-robot-demo
 insecure_skip_tls_verify  |  Skip insecure tls verify  |  true
 default_owner | Default owner of template files. | root
 default_group | Default group of template files. |  root
-delete_deployment  | delete the deployment and project for quarkus-cafe-demo  | false
+delete_deployment  | delete the deployment and project for quarkus-robot-demo  | false
 amqstartingCSV  | Red Hat AMQ csv version  |  amqstreams.v1.6.1
 mongodbstartingCSV  | MongoDB Ops Manager version  |  mongodb-enterprise.v1.8.0
 config_location  | default location for application templates  | "/tmp/"
-version_barista | Default container barista tag | 5.0.0-SNAPSHOT
+version_package | Default container package tag | 5.0.0-SNAPSHOT
 version_counter | Default container counter tag | 5.0.1-SNAPSHOT
 version_customermocker | Default container customermocker tag | 3.0.1
-version_kitchen | Default container kitchen tag | 5.0.0-SNAPSHOT
+version_customize | Default container customize tag | 5.0.0-SNAPSHOT
 version_web | Default container web tag | 5.0.1-SNAPSHOT
 helm_chart_version | Version of Qaurkus Cafe Helm Chart | 3.4.4
 pgsql_username | Default postgress user  | coffeshopadmin
 postgres_password | this is the postgress password that will be used in deployment| must be changed
-pgsql_url | default postgres URL | 'jdbc:postgresql://coffeeshopdb:5432/coffeeshopdb?currentSchema=coffeeshop'
+pgsql_url | default postgres URL | 'jdbc:postgresql://robotshopdb:5432/robotshopdb?currentSchema=robotshop'
 storeid | Store id for web frontend | RALEIGH
-quarkus_log_level | Quarkus coffee shop log level |  INFO
-quarkuscoffeeshop_log_level | Microservice log level | DEBUG
+quarkus_log_level | Quarkus robot shop log level |  INFO
+quarkusrobotshop_log_level | Microservice log level | DEBUG
 
-**Download the deploy-quarkuscoffeeshop-ansible.sh shell script**
+**Download the deploy-quarkusrobotshop-ansible.sh shell script**
 ```
-$ curl -OL https://raw.githubusercontent.com/quarkuscoffeeshop/quarkuscoffeeshop-ansible/master/files/deploy-quarkuscoffeeshop-ansible.sh
-$ chmod +x deploy-quarkuscoffeeshop-ansible.sh
-$ ./deploy-quarkuscoffeeshop-ansible.sh -d ocp4.example.com -t sha-123456789 -p 123456789 -s ATLANTA
+$ curl -OL https://raw.githubusercontent.com/quarkusrobotshop/quarkusrobotshop-ansible/master/files/deploy-quarkusrobotshop-ansible.sh
+$ chmod +x deploy-quarkusrobotshop-ansible.sh
+$ ./deploy-quarkusrobotshop-ansible.sh -d ocp4.example.com -t sha-123456789 -p 123456789 -s ATLANTA
 ```
 
 **To Build container image**
 ``` 
-podman build -t  quarkuscoffeeshop-ansible:v0.0.2 -f Dockerfile
+podman build -t  quarkusrobotshop-ansible:v0.0.2 -f Dockerfile
 ```
 
 **Test Container**
 ```
-podman run  -it   --env-file=./source.env  quarkuscoffeeshop-ansible:v0.0.2 bash or
-podman run  -it --env-file=./source.env   localhost/quarkuscoffeeshop-ansible:v0.0.2
+podman run  -it   --env-file=./source.env  quarkusrobotshop-ansible:v0.0.2 bash or
+podman run  -it --env-file=./source.env   localhost/quarkusrobotshop-ansible:v0.0.2
 ```
 
 **Delete old containers**
 ```
 podman rm $(podman ps -a | grep Exited | awk '{print $1}')
-podman rmi localhost/quarkuscoffeeshop-ansible:v0.0.2 
+podman rmi localhost/quarkusrobotshop-ansible:v0.0.2 
 ```
 
 Troubleshooting
