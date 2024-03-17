@@ -233,5 +233,5 @@ GPLv3
 Author Information
 ------------------
 
-This role was created in 2020 by [Tosin Akinosho](https://github.com/tosin2013)
-This role was updated in 2024 by [Noriaki Mushino](https://github.com/nmushino)
+* This role was created in 2020 by [Tosin Akinosho](https://github.com/tosin2013)
+* This role was updated in 2024 by [Noriaki Mushino](https://github.com/nmushino)
