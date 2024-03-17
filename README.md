@@ -106,9 +106,6 @@ ScreenShots
 
 ![quarkusrobotshop AMQ kafka topics](images/amq-topics.png "quarkusrobotshop  kafka topics")
 
-http://quarkusrobotshop-web-quarkus-robot-demo.apps.example.com example
-![qquarkusrobotshop application](images/webpage-example.png "quarkusrobotshop application")
-
 
 Usage
 ----------------
