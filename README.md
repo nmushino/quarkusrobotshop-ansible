@@ -1,15 +1,15 @@
 # Docs
 Please see the Github Pages Site for complete documentation: [quarkusrobotshop.github.io](https://quarkusrobotshop.github.io)
 
-QuarkusCoffeeshop Install
+Quarkusrobotshop Install
 =========
 
 _NOTE:_ Ansible must be installed https://docs.ansible.com/ansible/latest/installation_guide/index.html
 
-The QuarkusCoffeeshop Ansbile Role performs a basic installation that includes the microservices for a robotshop, installation of the Crunchy PostgreSQL DB, AMQ Streams (Kafka.)
+The Quarkusrobotshop Ansbile Role performs a basic installation that includes the microservices for a robotshop, installation of the Crunchy PostgreSQL DB, AMQ Streams (Kafka.)
 
 
-The QuarkusCoffeeshop Role will deploy an event-driven demo application built with Quarkus, AMQ Streams (Kafka), and MongoDB. The application deploys to OpenShift (Kubernetes.)
+The Quarkusrobotshop Role will deploy an event-driven demo application built with Quarkus, AMQ Streams (Kafka), and MongoDB. The application deploys to OpenShift (Kubernetes.)
 The source code for the  [quarkusrobotshop](https://github.com/quarkusrobotshop) application support doc can be found  [here](https://github.com/quarkusrobotshop/quarkusrobotshop-support).
 
 
@@ -153,7 +153,7 @@ curl  --request POST http://${ENDPOINT}/order \
 * oc cli must be installed
 * Ansible community.kubernetes module must be installed `ansible-galaxy collection install community.kubernetes`
 * Install [Helm](https://helm.sh/docs/intro/install/) Binary
-* [Postges Operator](https://github.com/tosin2013/postgres-operator) for Quarkus CoffeeShop 5.0.1-SNAPSHOT Deployments
+* [Postges Operator](https://github.com/tosin2013/postgres-operator) for Quarkus robotShop 5.0.1-SNAPSHOT Deployments
 * pip3 
 
 

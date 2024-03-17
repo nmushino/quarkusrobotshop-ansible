@@ -1,6 +1,6 @@
 # Notes on Legacy deployments
 
-Quarkus CoffeeShop v3.3.1 and lower dependencies
+Quarkus robotShop v3.3.1 and lower dependencies
 -----------
 ```
 ansible-galaxy collection install community.kubernetes
@@ -11,7 +11,7 @@ $ chmod 700 get_helm.sh
 $ ./get_helm.sh
 ```
 
-Quarkus CoffeeShop v3.3.1 OpenShift Deployment  with MongoDB Operator
+Quarkus robotShop v3.3.1 OpenShift Deployment  with MongoDB Operator
 -----------------------------
 ```
 $ ansible-galaxy install tosin2013.quarkus_robot_demo_role
@@ -45,7 +45,7 @@ YAML
 $ ansible-playbook  deploy-quarkus-robot.yml
 ```
 
-Quarkus CoffeeShop v3.3.1 OpenShift Deployment  with single mongoDB instance
+Quarkus robotShop v3.3.1 OpenShift Deployment  with single mongoDB instance
 -----------------------------
 ```
 $ ansible-galaxy install tosin2013.quarkus_robot_demo_role
