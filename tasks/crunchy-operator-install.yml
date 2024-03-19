@@ -83,7 +83,7 @@
   kubernetes.core.k8s_info:
     api: v1
     kind: Secret
-    name: robotshopdb-pguser-coffeshopadmin
+    name: robotshopdb-pguser-robotshopadmin
     namespace: "{{ project_namespace }}"
   register: databasepassword
   when: not delete_deployment|bool

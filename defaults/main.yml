@@ -9,7 +9,7 @@ project_namespace: quarkusrobotshop-demo
 delete_deployment: false
 amqstartingCSV: amqstreams.v2.6.0-1
 mongodbstartingCSV: mongodb-enterprise.v1.8.1
-crunchystartingCSV: postgresoperator.v5.5.0
+crunchystartingCSV: postgresoperator.v5.5.1
 config_location: "/tmp/"
 kafka_cluster_name: robot-cluster
 domain: ocp4.example.com

@@ -182,7 +182,7 @@ version_customermocker | Default container customermocker tag | 3.0.1
 version_customize | Default container customize tag | 5.0.0-SNAPSHOT
 version_web | Default container web tag | 5.0.1-SNAPSHOT
 helm_chart_version | Version of Qaurkus Cafe Helm Chart | 3.4.4
-pgsql_username | Default postgress user  | coffeshopadmin
+pgsql_username | Default postgress user  | robotshopadmin
 postgres_password | this is the postgress password that will be used in deployment| must be changed
 pgsql_url | default postgres URL | 'jdbc:postgresql://robotshopdb:5432/robotshopdb?currentSchema=robotshop'
 storeid | Store id for web frontend | RALEIGH
