@@ -12,13 +12,13 @@ then
   exit 1
 fi 
 
-psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c CREATE SCHEMA robotshop AUTHORIZATION robotshopadmin;
-psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c alter table if exists robotshop.LineItems
-drop constraint if exists FK6fhxopytha3nnbpbfmpiv4xgn;
-psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c drop table if exists robotshop.LineItems cascade;
+psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c "CREATE SCHEMA robotshop AUTHORIZATION robotshopadmin;"
+psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c "alter table if exists robotshop.LineItems
+    drop constraint if exists FK6fhxopytha3nnbpbfmpiv4xgn;"
+psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c "drop table if exists robotshop.LineItems cascade;
 drop table if exists robotshop.Orders cascade;
-drop table if exists robotshop.OutboxEvent cascade;
-psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c create table robotshop.LineItems (
+drop table if exists robotshop.OutboxEvent cascade;"
+psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c "create table robotshop.LineItems (
                            itemId varchar(255) not null,
                            item varchar(255),
                            lineItemStatus varchar(255),
@@ -26,19 +26,19 @@ psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c create table rob
                            price numeric(19, 2),
                            order_id varchar(255) not null,
                            primary key (itemId)
-);
+);"
 
-psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c create table robotshop.Orders (
+psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c "create table robotshop.Orders (
                         order_id varchar(255) not null,
                         loyaltyMemberId varchar(255),
-                        location varchar(255),
+                        location     varchar(255),
                         orderSource varchar(255),
                         orderStatus varchar(255),
                         timestamp timestamp,
                         primary key (order_id)
-);
+);"
 
-psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c create table robotshop.OutboxEvent (
+psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c "create table robotshop.OutboxEvent (
                              id uuid not null,
                              aggregatetype varchar(255) not null,
                              aggregateid varchar(255) not null,
@@ -46,9 +46,9 @@ psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c create table rob
                              timestamp timestamp not null,
                              payload varchar(8000),
                              primary key (id)
-);
+);"
 
-psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c alter table if exists robotshop.LineItems
+psql -h ${PGHOSTNAME} -p 5432 -U robotshopadmin robotshopdb  -c "alter table if exists robotshop.LineItems
     add constraint FK6fhxopytha3nnbpbfmpiv4xgn
         foreign key (order_id)
-            references robotshop.Orders;
+            references robotshop.Orders;"
