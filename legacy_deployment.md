@@ -34,10 +34,10 @@ $ cat >deploy-quarkus-robot.yml<<YAML
     skip_quarkusrobotshop_helm_install: false
     domain: ${DOMAIN}
     helm_chart_version: 3.3.0
-    version_package: 3.0.0
+    version_homerobot: 3.0.0
     version_counter: 3.1.0
     version_customermocker: 3.0.1
-    version_customize: 3.1.0
+    version_prorobot: 3.1.0
     version_web: 3.1.0
   roles:
     - tosin2013.quarkus_robot_demo_role
@@ -69,10 +69,10 @@ $ cat >deploy-quarkus-robot.yml<<YAML
     skip_quarkusrobotshop_helm_install: false
     domain: ${DOMAIN}
     helm_chart_version: 3.3.0
-    version_package: 3.0.0
+    version_homerobot: 3.0.0
     version_counter: 3.1.0
     version_customermocker: 3.0.1
-    version_customize: 3.1.0
+    version_prorobot: 3.1.0
     version_web: 3.1.0
   roles:
     - tosin2013.quarkus_robot_demo_role

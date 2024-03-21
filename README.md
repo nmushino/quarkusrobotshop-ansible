@@ -123,7 +123,7 @@ curl  --request POST http://${ENDPOINT}/order \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 -d '{
-    "packages": [
+    "homerobotOrders": [
         {
             "item": "CP1FC3_WITH_ROOM",
             "name": "Mickey"
@@ -133,7 +133,7 @@ curl  --request POST http://${ENDPOINT}/order \
             "name": "Minnie"
         }
     ],
-    "customizeOrders": [
+    "prorobotOrders": [
         {
             "item": "FAMKD8D8",
             "name": "Mickey"
@@ -176,10 +176,10 @@ delete_deployment  | delete the deployment and project for quarkus-robot-demo  |
 amqstartingCSV  | Red Hat AMQ csv version  |  amqstreams.v1.6.1
 mongodbstartingCSV  | MongoDB Ops Manager version  |  mongodb-enterprise.v1.8.0
 config_location  | default location for application templates  | "/tmp/"
-version_package | Default container package tag | 5.0.0-SNAPSHOT
+version_prorobot | Default container homerobot tag | 5.0.0-SNAPSHOT
 version_counter | Default container counter tag | 5.0.1-SNAPSHOT
 version_customermocker | Default container customermocker tag | 3.0.1
-version_customize | Default container customize tag | 5.0.0-SNAPSHOT
+version_prorobot | Default container prorobot tag | 5.0.0-SNAPSHOT
 version_web | Default container web tag | 5.0.1-SNAPSHOT
 helm_chart_version | Version of Qaurkus Cafe Helm Chart | 3.4.4
 pgsql_username | Default postgress user  | robotshopadmin

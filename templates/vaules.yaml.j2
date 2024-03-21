@@ -7,19 +7,19 @@ projectnamespace: {{ project_namespace }}
 domain: {{ domain }}
 kafka_cluster_name: {{ kafka_cluster_name }}
 version:
-  package: {{ version_package }}
+  homerobot: {{ version_homerobot }}
   counter: {{ version_counter }}
   customermocker: {{ version_customermocker }}
   inventory:  {{ version_inventory }}
-  customize: {{ version_customize }}
+  prorobot: {{ version_prorobot }}
   customerloyalty: {{ version_customerloyalty }}
   web: {{ version_web }}
 replica_count:
-  package: {{ replica_package }}
+  homerobot: {{ replica_homerobot }}
   counter: {{ replica_counter }}
   customermocker: {{ replica_customermocker }}
   inventory:  {{ replica_inventory }}
-  customize: {{ replica_customize }}
+  prorobot: {{ replica_homerobot }}
   customerloyalty: {{ replica_customerloyalty }}
   web: {{ replica_web }}
 {% if  single_mongodb_install  == False and skip_mongodb_operator_install == False %}
